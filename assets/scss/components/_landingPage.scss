@@ -1,5 +1,10 @@
 .answer{
   padding: 8px;
+  // background-color: rgba(0, 0, 0, 0.05);
+  &:hover{
+    cursor: pointer;
+    opacity: 0.7;
+  }
 }
 .container{
   min-height: 100vh;

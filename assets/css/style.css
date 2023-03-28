@@ -25,8 +25,25 @@ body {
   --color-bg-answer-numbering-false: rgb(247, 25, 22);
 }
 
+.bg_answer_correct {
+  background-color: var(--color-bg-answer-true);
+}
+
+.bg_answer_false {
+  background-color: var(--color-bg-answer-false);
+}
+
+.bg_answer_correct, .bg_answer_false {
+  color: var(--color-txt-black);
+  font-weight: bold;
+}
+
 .answer {
   padding: 8px;
+}
+.answer:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .container {
