@@ -1,0 +1,45 @@
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-bg) !important;
+}
+
+:root {
+  --color-txt-black: rgb(23, 23, 23);
+  --color-txt-white: rgb(247, 254, 255);
+  --color-txt-nav:rgb(173, 184, 216);
+  --color-txt-score: rgb(240, 134, 50);
+  --color-txt-replay: rgb(48, 67, 144);
+  --color-bg: rgb(254, 250, 239);
+  --color-bg-card: rgb(247, 247, 247);
+  --color-bg-card-nav: rgb(39, 53, 92);
+  --color-bg-arrow: rgb(218, 225, 244);
+  --color-bg-question:rgb(255, 255, 255);
+  --color-bg-question-numbering: rgb(213, 213, 213);
+  --color-btn-bg-start: rgb(253, 80, 14);
+  --color-btn-bg-share: rgb(24, 60, 232);
+  --color-bg-answer-true: rgb(183, 247, 153);
+  --color-bg-answer-numbering-true: rgb(78, 191, 25);
+  --color-bg-answer-false: rgb(255, 163, 164);
+  --color-bg-answer-numbering-false: rgb(247, 25, 22);
+}
+
+.container {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__quiz {
+  width: 25rem;
+}
+
+.footer-question {
+  border-top: 1px solid rgba(0, 0, 0, 0.4);
+  padding-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}/*# sourceMappingURL=style.css.map */
