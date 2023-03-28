@@ -24,3 +24,11 @@ body {
   --color-bg-answer-false: rgb(255, 163, 164);
   --color-bg-answer-numbering-false: rgb(247, 25, 22);
 }
+
+.container {
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
