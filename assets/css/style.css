@@ -25,6 +25,10 @@ body {
   --color-bg-answer-numbering-false: rgb(247, 25, 22);
 }
 
+.answer {
+  padding: 8px;
+}
+
 .container {
   min-height: 100vh;
   background-color: var(--color-bg);
