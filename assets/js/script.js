@@ -1,5 +1,7 @@
 let currentQuestion = 0,
-    rightQuestions  = 0;
+    rightQuestions  = 0,
+    AUDIO_SUCCESS = new Audio('assets/audio/right.mp3'),
+    AUDIO_FAIL = new Audio('assets/audio/wrong.mp3');
 
 const init = () =>{
   document.getElementById('max-question').innerHTML = questions.length;
@@ -8,32 +10,16 @@ const init = () =>{
 }
 
 const showQuestion = () =>{
-
-  if(currentQuestion >= questions.length){    //endscreen
-
-    document.getElementById('endscreen').style = '';
-    document.getElementById('question-body').style = 'display : none';
-
-    document.getElementById('amount-of-questions').innerHTML = questions.length;
-    document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-    document.getElementById('header-img').classList.add('opacity');
-    document.getElementById('header-img-result').classList.remove('d-none');
-
-  }else{    //show question
-    let question = questions[currentQuestion],
-        percent  = (currentQuestion + 1) / questions.length;
-
-    percent = Math.round(percent * 100);
-    document.getElementById('progress-bar').innerHTML = `${percent} %`;
-    document.getElementById('progress-bar').style.width = `${percent}%`;
-
-    document.getElementById('activ-question').innerHTML = currentQuestion + 1;
-    document.getElementById('question_text').innerHTML = question['question'];
-    document.getElementById('answer_1').innerHTML = question['answer_1'];
-    document.getElementById('answer_2').innerHTML = question['answer_2'];
-    document.getElementById('answer_3').innerHTML = question['answer_3'];
-    document.getElementById('answer_4').innerHTML = question['answer_4'];
+  if(gameIsOver()){     //endscreen
+    generateHtmlEndscreen();
+  }else{                                      //show question
+    generateHtmlProgressbar();
+    generateHtmlQuestion();
   }
+}
+
+const gameIsOver = () =>{
+  return currentQuestion >= questions.length;
 }
 
 const answer = (selection) =>{
@@ -41,14 +27,32 @@ const answer = (selection) =>{
       selectedQuestionNumber = selection.slice(-1),
       idOfRightAnswer = `answer_${question['right_answer']}`;
 
-  if(selectedQuestionNumber == question['right_answer']){   //check correct answer
-    document.getElementById(selection).classList.add("bg_answer_correct");
-    rightQuestions++;
+  if(rightAnswerSelected(selectedQuestionNumber, question)){   //check correct answer
+    feedbackCorrectAnswer(selection);
+    incrementQuestion();
   }else{
-    document.getElementById(selection).classList.add("bg_answer_false");
-    document.getElementById(idOfRightAnswer).classList.add("bg_answer_correct");
+    feedbackFalseAnswer(selection, idOfRightAnswer);
   }
   document.getElementById('next-btn').disabled = false;
+}
+
+const rightAnswerSelected = (selectedQuestionNumber, question) =>{
+  return selectedQuestionNumber == question['right_answer'];
+}
+
+const feedbackCorrectAnswer = (selection) =>{
+  document.getElementById(selection).classList.add("bg_answer_correct");
+  AUDIO_SUCCESS.play();
+}
+
+const incrementQuestion = () =>{
+  rightQuestions++;
+}
+
+const feedbackFalseAnswer = (selection, idOfRightAnswer) =>{
+  document.getElementById(selection).classList.add("bg_answer_false");
+  document.getElementById(idOfRightAnswer).classList.add("bg_answer_correct");
+  AUDIO_FAIL.play();
 }
 
 const nextQuestion = () => {
@@ -56,30 +60,15 @@ const nextQuestion = () => {
   document.getElementById('next-btn').disabled = true;
   resetAnswerButtons();
   showQuestion();
-  // document.getElementById(idOfRightAnswer).classList.remove("bg_answer_correct");
 }
 
 const resetAnswerButtons = () => {
-  document.getElementById('answer_1').classList.remove("bg_answer_correct");
-  document.getElementById('answer_1').classList.remove("bg_answer_false");
-
-  document.getElementById('answer_2').classList.remove("bg_answer_correct");
-  document.getElementById('answer_2').classList.remove("bg_answer_false");
-
-  document.getElementById('answer_3').classList.remove("bg_answer_correct");
-  document.getElementById('answer_3').classList.remove("bg_answer_false");
-
-  document.getElementById('answer_4').classList.remove("bg_answer_correct");
-  document.getElementById('answer_4').classList.remove("bg_answer_false");
+  generateHtmlResetBgAnswer();
 }
 
 const restartGame = () =>{
   currentQuestion = 0;
   rightQuestions  = 0;
-  document.getElementById('endscreen').style = 'display : none';
-    document.getElementById('question-body').style = '';
-  document.getElementById('header-img').classList.remove('opacity');
-  document.getElementById('header-img-result').classList.add('d-none');
-
+  generateHtmlRestartGame();
   init();
 }
