@@ -7,14 +7,21 @@ const init = () =>{
 }
 
 const showQuestion = () =>{
-  let question = questions[currentQuestion];
 
-  document.getElementById('activ-question').innerHTML = currentQuestion + 1;
-  document.getElementById('question_text').innerHTML = question['question'];
-  document.getElementById('answer_1').innerHTML = question['answer_1'];
-  document.getElementById('answer_2').innerHTML = question['answer_2'];
-  document.getElementById('answer_3').innerHTML = question['answer_3'];
-  document.getElementById('answer_4').innerHTML = question['answer_4'];
+  if(currentQuestion >= questions.length){
+
+    //todo show endscreen
+    
+  }else{
+    let question = questions[currentQuestion];
+  
+    document.getElementById('activ-question').innerHTML = currentQuestion + 1;
+    document.getElementById('question_text').innerHTML = question['question'];
+    document.getElementById('answer_1').innerHTML = question['answer_1'];
+    document.getElementById('answer_2').innerHTML = question['answer_2'];
+    document.getElementById('answer_3').innerHTML = question['answer_3'];
+    document.getElementById('answer_4').innerHTML = question['answer_4'];
+  }
 }
 
 const answer = (selection) =>{
