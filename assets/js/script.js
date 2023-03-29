@@ -9,16 +9,24 @@ const init = () =>{
 
 const showQuestion = () =>{
 
-  if(currentQuestion >= questions.length){
+  if(currentQuestion >= questions.length){    //endscreen
 
     document.getElementById('endscreen').style = '';
     document.getElementById('question-body').style = 'display : none';
 
     document.getElementById('amount-of-questions').innerHTML = questions.length;
     document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-  }else{
-    let question = questions[currentQuestion];
-  
+    document.getElementById('header-img').classList.add('opacity');
+    document.getElementById('header-img-result').classList.remove('d-none');
+
+  }else{    //show question
+    let question = questions[currentQuestion],
+        percent  = (currentQuestion + 1) / questions.length;
+
+    percent = Math.round(percent * 100);
+    document.getElementById('progress-bar').innerHTML = `${percent} %`;
+    document.getElementById('progress-bar').style.width = `${percent}%`;
+
     document.getElementById('activ-question').innerHTML = currentQuestion + 1;
     document.getElementById('question_text').innerHTML = question['question'];
     document.getElementById('answer_1').innerHTML = question['answer_1'];
