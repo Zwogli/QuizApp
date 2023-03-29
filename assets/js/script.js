@@ -9,6 +9,7 @@ const init = () =>{
 const showQuestion = () =>{
   let question = questions[currentQuestion];
 
+  document.getElementById('activ-question').innerHTML = currentQuestion + 1;
   document.getElementById('question_text').innerHTML = question['question'];
   document.getElementById('answer_1').innerHTML = question['answer_1'];
   document.getElementById('answer_2').innerHTML = question['answer_2'];
@@ -31,5 +32,23 @@ const answer = (selection) =>{
 }
 
 const nextQuestion = () => {
-  
+  currentQuestion++;  //increas from 0 to 1
+  document.getElementById('next-btn').disabled = true;
+  resetAnswerButtons();
+  showQuestion();
+  // document.getElementById(idOfRightAnswer).classList.remove("bg_answer_correct");
+}
+
+const resetAnswerButtons = () => {
+  document.getElementById('answer_1').classList.remove("bg_answer_correct");
+  document.getElementById('answer_1').classList.remove("bg_answer_false");
+
+  document.getElementById('answer_2').classList.remove("bg_answer_correct");
+  document.getElementById('answer_2').classList.remove("bg_answer_false");
+
+  document.getElementById('answer_3').classList.remove("bg_answer_correct");
+  document.getElementById('answer_3').classList.remove("bg_answer_false");
+
+  document.getElementById('answer_4').classList.remove("bg_answer_correct");
+  document.getElementById('answer_4').classList.remove("bg_answer_false");
 }
