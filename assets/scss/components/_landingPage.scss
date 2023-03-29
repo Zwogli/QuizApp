@@ -41,3 +41,14 @@
   right: 0;
   top: 0;
 }
+.container-fluid{
+  width: 0;
+}
+
+@media(max-width: 750px){
+  .container{
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  }
+}
