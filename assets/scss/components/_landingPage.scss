@@ -24,6 +24,17 @@
   display: flex;
   justify-content: space-between;
 }
+.header-img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#header-img-result{
+  width: 40%;
+}
+.result{
+  position: absolute;
+}
 .tropy{
   height: 100%;
   position: absolute;

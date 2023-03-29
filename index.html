@@ -28,15 +28,22 @@
 
 <section class="container">
 
-  <div class="card card__quiz">
-    <img src="assets/img/education.jpg" class="card-img-top" alt="...">
+  <div class="card card__quiz p-relativ">
+    <div class="header-img">
+      <img src="assets/img/education.jpg" id="header-img" class="card-img-top" alt="...">
+      <img src="assets/img/brain result.png" id="header-img-result" class="d-none result" alt="brain result">
+    </div>
+
+    <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
+      <div id="progress-bar" class="progress-bar" style="width: 0%">25%</div>
+    </div>
 
     <div id="endscreen" class="card-body p-relativ" style="display: none;">
       <div class="txt-center ">
 
-        <p><b>Quiz beendet!</b></p>
-        <img class="mb-2" src="assets/img/brain result.png" alt="brain result">
-        <p class="txt-center">Du hast <b id="">XXX</b> Fragen von <b id="amountOfQuestions">XXX</b> richtig beantwortet.</p>
+        <p><b class="f_size_38">Quiz beendet!</b></p>
+        <!-- <img class="mb-2" src="assets/img/brain result.png" alt="brain result"> -->
+        <p class="txt-center">Du hast <b id="amount-of-right-questions">XXX</b> Fragen von <b id="amount-of-questions">XXX</b> richtig beantwortet.</p>
       
       </div>
 

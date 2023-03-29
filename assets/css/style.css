@@ -39,6 +39,18 @@ body {
   font-weight: bold;
 }
 
+.d-none {
+  display: none;
+}
+
+.f_size_38 {
+  font-size: 38px;
+}
+
+.opacity {
+  opacity: 0.8;
+}
+
 .p-relativ {
   position: relative;
 }
@@ -77,6 +89,20 @@ body {
   padding-top: 8px;
   display: flex;
   justify-content: space-between;
+}
+
+.header-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header-img-result {
+  width: 40%;
+}
+
+.result {
+  position: absolute;
 }
 
 .tropy {
