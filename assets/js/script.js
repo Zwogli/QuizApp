@@ -72,3 +72,14 @@ const resetAnswerButtons = () => {
   document.getElementById('answer_4').classList.remove("bg_answer_correct");
   document.getElementById('answer_4').classList.remove("bg_answer_false");
 }
+
+const restartGame = () =>{
+  currentQuestion = 0;
+  rightQuestions  = 0;
+  document.getElementById('endscreen').style = 'display : none';
+    document.getElementById('question-body').style = '';
+  document.getElementById('header-img').classList.remove('opacity');
+  document.getElementById('header-img-result').classList.add('d-none');
+
+  init();
+}
