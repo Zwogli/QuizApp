@@ -1,4 +1,5 @@
-let currentQuestion = 0;
+let currentQuestion = 0,
+    rightQuestions  = 0;
 
 const init = () =>{
   document.getElementById('max-question').innerHTML = questions.length;
@@ -9,10 +10,12 @@ const init = () =>{
 const showQuestion = () =>{
 
   if(currentQuestion >= questions.length){
-    
+
     document.getElementById('endscreen').style = '';
     document.getElementById('question-body').style = 'display : none';
 
+    document.getElementById('amount-of-questions').innerHTML = questions.length;
+    document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
   }else{
     let question = questions[currentQuestion];
   
@@ -30,8 +33,9 @@ const answer = (selection) =>{
       selectedQuestionNumber = selection.slice(-1),
       idOfRightAnswer = `answer_${question['right_answer']}`;
 
-  if(selectedQuestionNumber == question['right_answer']){
+  if(selectedQuestionNumber == question['right_answer']){   //check correct answer
     document.getElementById(selection).classList.add("bg_answer_correct");
+    rightQuestions++;
   }else{
     document.getElementById(selection).classList.add("bg_answer_false");
     document.getElementById(idOfRightAnswer).classList.add("bg_answer_correct");
