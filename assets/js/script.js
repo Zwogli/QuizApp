@@ -9,9 +9,10 @@ const init = () =>{
 const showQuestion = () =>{
 
   if(currentQuestion >= questions.length){
-
-    //todo show endscreen
     
+    document.getElementById('endscreen').style = '';
+    document.getElementById('question-body').style = 'display : none';
+
   }else{
     let question = questions[currentQuestion];
   
