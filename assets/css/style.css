@@ -2,7 +2,7 @@ body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background-color: var(--color-bg) !important;
+  background-color: var(--color-bg-card-nav) !important;
 }
 
 :root {
@@ -23,6 +23,7 @@ body {
   --color-bg-answer-numbering-true: rgb(78, 191, 25);
   --color-bg-answer-false: rgb(255, 163, 164);
   --color-bg-answer-numbering-false: rgb(247, 25, 22);
+  --color-bg-trophy: #1F485E;
 }
 
 .bg_answer_correct {
@@ -37,6 +38,12 @@ body {
 
 .bg_answer_correct, .bg_answer_false {
   font-weight: bold;
+}
+
+.d-center {
+  display: flex;
+  justify-content: center !important;
+  align-items: center;
 }
 
 .d-none {
@@ -74,7 +81,8 @@ body {
 
 .container {
   min-height: calc(100vh - 50px);
-  background-color: var(--color-bg);
+  max-width: 100%;
+  background-color: var(--color-bg-card-nav);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -114,6 +122,10 @@ body {
 
 .container-fluid {
   width: 0;
+}
+
+.progress {
+  border-radius: 0;
 }
 
 @media (max-width: 750px) {

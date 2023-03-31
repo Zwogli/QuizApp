@@ -10,6 +10,11 @@
   // color: var(--color-txt-black);
   font-weight: bold;
 }
+.d-center{
+  display: flex;
+  justify-content: center!important;
+  align-items: center;
+}
 .d-none{
   display: none;
 }

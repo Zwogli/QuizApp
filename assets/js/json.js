@@ -16,7 +16,7 @@ let questions = [
     "right_answer"  : 3
   },
   {
-    "question"      : "Welches Attribut kann man NICHT für Testarea verwenden?",
+    "question"      : "Welches Attribut kann man NICHT für Textarea verwenden?",
     "answer_1"      : "readonly",
     "answer_2"      : "max",
     "answer_3"      : "from",

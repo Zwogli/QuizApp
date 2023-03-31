@@ -3,8 +3,9 @@ function generateHtmlEndscreen(){
   document.getElementById('question-body').style = 'display : none';
   document.getElementById('amount-of-questions').innerHTML = questions.length;
   document.getElementById('amount-of-right-questions').innerHTML = rightQuestions;
-  document.getElementById('header-img').classList.add('opacity');
-  document.getElementById('header-img-result').classList.remove('d-none');
+  // document.getElementById('header-img').classList.add('opacity');
+  // document.getElementById('header-img-result').classList.remove('d-none');
+  document.getElementById('header-img').src = 'assets/img/game.jpg';
 }
 
 function generateHtmlProgressbar(){
@@ -40,6 +41,7 @@ function generateHtmlResetBgAnswer(){
 function generateHtmlRestartGame(){
   document.getElementById('endscreen').style = 'display : none';
   document.getElementById('question-body').style = '';
-  document.getElementById('header-img').classList.remove('opacity');
-  document.getElementById('header-img-result').classList.add('d-none');
+  // document.getElementById('header-img').classList.remove('opacity');
+  // document.getElementById('header-img-result').classList.add('d-none');
+  document.getElementById('header-img').src = 'assets/img/quiz.jpg';
 }
