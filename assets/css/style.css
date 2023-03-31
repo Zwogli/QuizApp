@@ -71,6 +71,7 @@ body {
 }
 
 .answer {
+  width: 100%;
   padding: 8px;
 }
 .answer:hover {

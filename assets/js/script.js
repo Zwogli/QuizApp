@@ -12,6 +12,7 @@ const init = () =>{
 const showQuestion = () =>{
   if(gameIsOver()){     //endscreen
     generateHtmlEndscreen();
+    generateHtmlProgressbar();
   }else{                                      //show question
     generateHtmlProgressbar();
     generateHtmlQuestion();
@@ -33,6 +34,7 @@ const answer = (selection) =>{
   }else{
     feedbackFalseAnswer(selection, idOfRightAnswer);
   }
+  disableAllInputs();
   document.getElementById('next-btn').disabled = false;
 }
 
@@ -55,15 +57,31 @@ const feedbackFalseAnswer = (selection, idOfRightAnswer) =>{
   AUDIO_FAIL.play();
 }
 
+function disableAllInputs(){
+  document.getElementById('answer_1').disabled = true;
+  document.getElementById('answer_2').disabled = true;
+  document.getElementById('answer_3').disabled = true;
+  document.getElementById('answer_4').disabled = true;
+}
+
 const nextQuestion = () => {
   currentQuestion++;  //increas from 0 to 1
   document.getElementById('next-btn').disabled = true;
   resetAnswerButtons();
   showQuestion();
+
 }
 
 const resetAnswerButtons = () => {
   generateHtmlResetBgAnswer();
+  enableAllInputs();
+}
+
+function enableAllInputs(){
+  document.getElementById('answer_1').disabled = false;
+  document.getElementById('answer_2').disabled = false;
+  document.getElementById('answer_3').disabled = false;
+  document.getElementById('answer_4').disabled = false;
 }
 
 const restartGame = () =>{
